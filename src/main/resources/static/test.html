@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:form="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/submit}" th:object="${user}">
+
+    <label for="token">Enter token</label>
+    <input type="text" th:field="*{token}" id="token"/>
+
+    <br/>
+
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>
