@@ -8,9 +8,9 @@
 <body>
     <form th:method="POST" th:action="@{/login/token}" th:object="${user}">
 
-        <label for="token">Enter token</label>
+        <label for="token">Enter your token:</label>
         <input type="text" th:field="*{token}" id="token"/>
-
+        <div style="color:red" th:if="${#fields.hasErrors('token')}" th:errors="*{token}">Token error</div>
         <br/>
 
         <input type="submit" value="Submit"/>
