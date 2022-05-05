@@ -9,5 +9,4 @@ public class FigmaComparatorApplication {
    public static void main(String[] args) {
       SpringApplication.run(FigmaComparatorApplication.class, args);
    }
-
 }
