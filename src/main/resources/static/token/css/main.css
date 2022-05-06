@@ -1,0 +1,8 @@
+.login-form {
+    background-size: cover;
+    background-color: #d39e00;
+    background-position: center;
+    background-attachment: fixed;
+    height: 500px; /* You must set a specified height */
+    background-repeat: no-repeat; /* Do not repeat the image */
+}
