@@ -9,7 +9,7 @@
     <div th:insert="~{common :: header}"></div>
     <div class="login-form" style="font-family: Source Sans Pro; font-style: normal; font-weight: normal; line-height: 25px; font-size: 14px; padding-left: 14px;">
         <br/>
-        <b>Your current temporary tokes is: </b>
+        <b>Current token status: </b>
         <p style="display: inline-block" th:text="${token}">token</p>
         <form action="javascript:history.back()">
             <button>Get back</button>

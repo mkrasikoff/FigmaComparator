@@ -11,7 +11,7 @@
         <br/>
         <form th:method="POST" th:action="@{/login/token}" th:object="${user}">
             <label for="token">Enter your token:</label>
-            <input type="text" th:field="*{token}" id="token" size="40"/>
+            <input type="text" th:field="*{token}" id="token" size="41"/>
             <div style="color:darkred" th:if="${#fields.hasErrors('token')}" th:errors="*{token}">Token error</div>
             <br/>
             <input type="submit" value="Submit"/>

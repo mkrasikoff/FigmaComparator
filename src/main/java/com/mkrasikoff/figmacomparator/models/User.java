@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 @Data
 public class User {
 
-   @NotEmpty(message = "Token shouldn't be empty")
-   @Size(min = 43, max = 43, message = "Please sure that you write a valid token")
+   @NotEmpty(message = "Token should not be empty!")
+   @Size(min = 43, max = 43, message = "Please sure that you write a valid token! (43 symbols)")
    private String token;
 }
