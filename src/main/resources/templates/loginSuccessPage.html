@@ -9,12 +9,10 @@
     <div th:insert="~{common :: header}"></div>
     <div class="login-form" style="font-family: Source Sans Pro; font-style: normal; font-weight: normal; line-height: 25px; font-size: 14px; padding-left: 14px;">
         <br/>
-        <form th:method="POST" th:action="@{/login/token}" th:object="${user}">
-            <label for="token">Enter your token:</label>
-            <input type="text" th:field="*{token}" id="token" size="41"/>
-            <div style="color:darkred" th:if="${#fields.hasErrors('token')}" th:errors="*{token}">Token error</div>
-            <br/>
-            <input type="submit" value="Submit"/>
+        <b>Current token status: </b>
+        <p style="display: inline-block" th:text="${token}">token</p>
+        <form action="javascript:history.back()">
+            <button>Get back</button>
         </form>
         <br/>
     </div>

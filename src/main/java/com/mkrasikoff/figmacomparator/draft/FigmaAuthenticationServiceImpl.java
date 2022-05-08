@@ -1,9 +1,11 @@
-package com.mkrasikoff.figmacomparator.services;
+package com.mkrasikoff.figmacomparator.draft;
 
+import com.mkrasikoff.figmacomparator.services.HttpService;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+// TODO: Finish this service in the task FC-## - Add OAuthV2 Authentication
 public class FigmaAuthenticationServiceImpl implements FigmaAuthenticationService {
 
    private static final Logger logger = LoggerFactory.getLogger(FigmaAuthenticationServiceImpl.class);

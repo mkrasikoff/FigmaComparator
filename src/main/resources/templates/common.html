@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+  <!--HEADER-->
+  <div th:fragment="header">
+    <td style="border-collapse: collapse;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%"
+             style="border-collapse: collapse">
+        <tbody>
+        <tr>
+          <td style="vertical-align: bottom;">
+            <img src="../static/images/header.jpg" th:src="@{${'/images/header.jpg'}}" height="50" width="100%" style="vertical-align: bottom;"/>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </div>
+  <!--FOOTER-->
+  <div th:fragment="footer">
+    <td style="border-collapse: collapse; box-sizing: border-box;">
+      <table border="0" width="100%" align="center" cellpadding="0" cellspacing="0"
+             bgcolor="#464547"
+             style="border-spacing: 0; margin: 0 auto; mso-table-lspace: 0; mso-table-rspace: 0; background: #464547;">
+        <tbody>
+        <tr align="center">
+          <td style="padding: 20px; font-family: Source Sans Pro;font-style: normal;font-weight: normal;line-height: normal;font-size: 14px;color: #CCCCCC;">
+            This page was designed as pet-project by Mikhail Krasikov.
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </div>
+</body>
+</html>
