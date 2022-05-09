@@ -3,16 +3,16 @@
 <head>
     <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}">
     <meta charset="UTF-8">
-    <title>Login page</title>
+    <title>Please login!</title>
 </head>
 <body>
     <div th:insert="~{common :: header}"></div>
     <div class="login-form" style="font-family: Source Sans Pro; font-style: normal; font-weight: normal; line-height: 25px; font-size: 14px; padding-left: 14px;">
         <br/>
-        <b>Current token status: </b>
-        <p style="display: inline-block" th:text="${token}">token</p>
-        <form action="javascript:history.back()">
-            <button>Get back</button>
+        <span><strong>You are not logged in.</strong> Please return to the login page:</span>
+        <br/>
+        <form th:method="GET" th:action="@{/login/token}">
+            <input type="submit" value="Login page"/>
         </form>
         <br/>
     </div>
