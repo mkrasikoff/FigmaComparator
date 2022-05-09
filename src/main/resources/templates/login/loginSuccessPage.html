@@ -10,10 +10,17 @@
     <div class="login-form" style="font-family: Source Sans Pro; font-style: normal; font-weight: normal; line-height: 25px; font-size: 14px; padding-left: 14px;">
         <br/>
         <b>Current token status: </b>
-        <p style="display: inline-block" th:text="${token}">token</p>
-        <form action="javascript:history.back()">
-            <button>Get back</button>
-        </form>
+        <p style="display: inline" th:text="${token}">token</p>
+        <div style="display: inline">
+            <form action="javascript:history.back()">
+                <button>Get back</button>
+            </form>
+        </div>
+        <div style="display: inline">
+            <form th:method="GET" th:action="@{/profile/me}">
+                <input type="submit" value="My Profile"/>
+            </form>
+        </div>
         <br/>
     </div>
     <div th:insert="~{common :: footer}"></div>

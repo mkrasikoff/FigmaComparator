@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile</title>
+</head>
+<body>
+    <div th:insert="~{common :: header}"></div>
+    <div class="login-form" style="font-family: Source Sans Pro; font-style: normal; font-weight: normal; line-height: 25px; font-size: 14px; padding-left: 14px;">
+        <br/>
+        <form th:method="POST" th:action="@{/login/token}" th:object="${user}">
+            <label for="token">Enter your token:</label>
+            <input type="text" th:field="*{token}" id="token" size="41"/>
+            <div style="color:darkred" th:if="${#fields.hasErrors('token')}" th:errors="*{token}">Token error</div>
+            <br/>
+            <input type="submit" value="Submit"/>
+        </form>
+        <br/>
+    </div>
+    <div th:insert="~{common :: footer}"></div>
+</body>
+</html>
