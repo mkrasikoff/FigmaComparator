@@ -11,14 +11,14 @@
         <br/>
         <b>Current token status: </b>
         <p style="display: inline" th:text="${token}">token</p>
-        <div style="display: inline">
-            <form action="javascript:history.back()">
-                <button>Get back</button>
-            </form>
-        </div>
-        <div style="display: inline">
+        <div>
             <form th:method="GET" th:action="@{/profile/me}">
                 <input type="submit" value="My Profile"/>
+            </form>
+        </div>
+        <div style="display: block">
+            <form action="javascript:history.back()">
+                <button>Get back</button>
             </form>
         </div>
         <br/>

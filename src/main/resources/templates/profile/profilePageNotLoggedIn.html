@@ -9,7 +9,7 @@
     <div th:insert="~{common :: header}"></div>
     <div class="login-form" style="font-family: Source Sans Pro; font-style: normal; font-weight: normal; line-height: 25px; font-size: 14px; padding-left: 14px;">
         <br/>
-        <b>You are not logged in. Please return to the login page:</b>
+        <span><strong>You are not logged in.</strong> Please return to the login page:</span>
         <br/>
         <form th:method="GET" th:action="@{/login/token}">
             <input type="submit" value="Login page"/>
