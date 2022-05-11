@@ -9,19 +9,21 @@
     <div th:insert="~{common :: header}"></div>
     <div class="login-form" style="font-family: Source Sans Pro; font-style: normal; font-weight: normal; line-height: 25px; font-size: 14px; padding-left: 14px;">
         <br/>
-        <b>Current token status: </b>
-        <p style="display: inline" th:text="${token}">token</p>
+        <div>
+            <span><strong>Current token status: </strong></span>
+            <span th:text="${token}">Your token</span>
+        </div>
         <div>
             <form th:method="GET" th:action="@{/profile/me}">
                 <input type="submit" value="My Profile"/>
             </form>
         </div>
         <div>
-            <form th:method="GET" th:action="@{/files/key}">
-                <input type="submit" value="Files"/>
+            <form th:method="GET" th:action="@{/projects/key}">
+                <input type="submit" value="Projects"/>
             </form>
         </div>
-        <div style="display: block">
+        <div>
             <form action="javascript:history.back()">
                 <button>Get back</button>
             </form>

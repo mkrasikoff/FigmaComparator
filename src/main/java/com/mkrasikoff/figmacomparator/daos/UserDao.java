@@ -6,15 +6,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserDao {
 
-   private String actualToken;
+   private User actualUser;
    private boolean isLoggedIn = false;
 
-   public String getActualToken() {
-      return actualToken;
+   public User getActualUser() {
+
+      if(actualUser == null) {
+         actualUser = new User();
+         actualUser.setToken("");
+      }
+
+      return actualUser;
    }
 
    public void saveActualToken(User user) {
-      actualToken = user.getToken();
+      actualUser = user;
    }
 
    public boolean isLoggedIn() {

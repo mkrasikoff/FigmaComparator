@@ -3,7 +3,6 @@ package com.mkrasikoff.figmacomparator.daos;
 import com.mkrasikoff.figmacomparator.exceptions.ProjectNotFoundException;
 import com.mkrasikoff.figmacomparator.models.Project;
 import org.springframework.stereotype.Component;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +11,7 @@ public class ProjectsDao {
 
    private final Map<String, Project> projects;
 
-   ProjectsDao() {
+   public ProjectsDao() {
       this.projects = new HashMap<>();
    }
 

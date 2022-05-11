@@ -14,6 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/profile")
 public class ProfileController {
 
+   private static final String VIEW_PROFILE_PAGE = "profile/profilePage";
+   private static final String VIEW_PROFILE_PAGE_NOT_LOGGED_IN = "profile/profilePageNotLoggedIn";
+
    @Autowired
    UserDao userDao;
 
@@ -25,15 +28,15 @@ public class ProfileController {
       ModelAndView modelAndView = new ModelAndView();
 
       if(userDao.isLoggedIn()) {
-         String jsonString = httpService.doGet(FigmaAPI.INFO_ABOUT_ME, userDao.getActualToken());
+         String jsonString = httpService.doGet(FigmaAPI.INFO_ABOUT_ME, userDao.getActualUser().getToken());
          JSONObject jsonObject = new JSONObject(jsonString);
          modelAndView.addObject("name", jsonObject.get("handle"));
          modelAndView.addObject("email", jsonObject.get("email"));
          modelAndView.addObject("img", jsonObject.get("img_url"));
-         modelAndView.setViewName("profile/profilePage");
+         modelAndView.setViewName(VIEW_PROFILE_PAGE);
       }
       else {
-         modelAndView.setViewName("profile/profilePageNotLoggedIn");
+         modelAndView.setViewName(VIEW_PROFILE_PAGE_NOT_LOGGED_IN);
       }
 
       return modelAndView;

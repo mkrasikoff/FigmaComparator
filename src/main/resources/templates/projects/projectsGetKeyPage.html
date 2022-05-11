@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}">
     <meta charset="UTF-8">
-    <title>Files page</title>
+    <title>Projects page</title>
 </head>
 <body>
     <div th:insert="~{common :: header}"></div>
@@ -30,7 +30,7 @@
             </span>
         </div>
         <div>
-            <form th:method="POST" th:action="@{/files/key}" th:object="${project}">
+            <form th:method="POST" th:action="@{/projects/key}" th:object="${project}">
                 <div>
                     <label for="key">Enter your project key:</label>
                     <input type="text" th:field="*{key}" id="key" size="41"/>
