@@ -10,6 +10,12 @@ public class UserDao {
    private boolean isLoggedIn = false;
 
    public User getActualUser() {
+
+      if(actualUser == null) {
+         actualUser = new User();
+         actualUser.setToken("");
+      }
+
       return actualUser;
    }
 

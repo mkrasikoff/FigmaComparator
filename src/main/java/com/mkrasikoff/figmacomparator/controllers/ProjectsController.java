@@ -6,6 +6,7 @@ import com.mkrasikoff.figmacomparator.daos.UserDao;
 import com.mkrasikoff.figmacomparator.exceptions.ApiConnectionException;
 import com.mkrasikoff.figmacomparator.exceptions.AuthenticationException;
 import com.mkrasikoff.figmacomparator.models.Project;
+import com.mkrasikoff.figmacomparator.models.User;
 import com.mkrasikoff.figmacomparator.services.HttpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -68,6 +69,7 @@ public class ProjectsController {
          modelAndView.setViewName(VIEW_PROJECTS_GET_KEY_PAGE);
       }
       catch (AuthenticationException exc) {
+         modelAndView.addObject("user", new User());
          modelAndView.setViewName(VIEW_LOGIN_PAGE);
       }
 
