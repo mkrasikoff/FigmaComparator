@@ -22,9 +22,9 @@ import java.util.List;
 @Component
 public class HttpServiceImpl implements HttpService {
 
-   public static final String MESSAGE_INVALID_TOKEN = "Invalid token!";
-   public static final String MESSAGE_BAD_CREDENTIALS = "Bad credentials!";
-   public static final String MESSAGE_ERROR_STATUS = "Error status: ";
+   private static final String MESSAGE_INVALID_TOKEN = "Invalid token!";
+   private static final String MESSAGE_BAD_CREDENTIALS = "Bad credentials!";
+   private static final String MESSAGE_ERROR_STATUS = "Error status: ";
 
    private static final Logger logger = LoggerFactory.getLogger(HttpServiceImpl.class);
 
@@ -81,8 +81,8 @@ public class HttpServiceImpl implements HttpService {
    }
 
    @Override
+   // TODO: Finish this service in the task FC-## - Perform post service for Figma API
    public String doPost(String url, String body) {
-
       return null;
    }
 }

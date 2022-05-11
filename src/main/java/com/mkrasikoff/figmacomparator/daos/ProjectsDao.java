@@ -11,7 +11,7 @@ public class ProjectsDao {
 
    private final Map<String, Project> projects;
 
-   ProjectsDao() {
+   public ProjectsDao() {
       this.projects = new HashMap<>();
    }
 

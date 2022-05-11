@@ -18,11 +18,15 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/files")
+@RequestMapping("/projects")
 // TODO: Finish this service in the task FC-## - Add url parsing to simplify user experience with app
-public class FileController {
+public class ProjectsController {
 
-   public static final String MESSAGE_PROJECT_NOT_ADDED = "Error - The project has not been added!";
+   private static final String MESSAGE_PROJECT_NOT_ADDED = "Error - The project has not been added!";
+
+   private static final String VIEW_PROJECTS_GET_KEY_PAGE = "projects/projectsGetKeyPage";
+   private static final String VIEW_PROJECTS_SUCCESS_PAGE = "projects/projectsSuccessPage";
+   private static final String VIEW_LOGIN_PAGE = "login/loginPage";
 
    @Autowired
    private ProjectsDao projectsDao;
@@ -38,7 +42,7 @@ public class FileController {
 
       ModelAndView modelAndView = new ModelAndView();
       modelAndView.addObject("project", new Project());
-      modelAndView.setViewName("files/filesGetKeyPage");
+      modelAndView.setViewName(VIEW_PROJECTS_GET_KEY_PAGE);
 
       return modelAndView;
    }
@@ -49,18 +53,22 @@ public class FileController {
       ModelAndView modelAndView = new ModelAndView();
 
       if(bindingResult.hasErrors()) {
-         modelAndView.setViewName("files/filesGetKeyPage");
+         modelAndView.setViewName(VIEW_PROJECTS_GET_KEY_PAGE);
          return modelAndView;
       }
 
       try {
          httpService.doGet(FigmaAPI.INFO_ABOUT_PROJECT + project.getKey(), userDao.getActualUser().getToken()); // change api
          projectsDao.addProject(project);
-         modelAndView.setViewName("files/filesSuccessPage");
+         modelAndView.addObject("project_name", project.getName() + " page");
+         modelAndView.setViewName(VIEW_PROJECTS_SUCCESS_PAGE);
       }
-      catch (AuthenticationException | ApiConnectionException exc) {
+      catch (ApiConnectionException exc) {
          modelAndView.addObject("message", MESSAGE_PROJECT_NOT_ADDED);
-         modelAndView.setViewName("files/filesGetKeyPage");
+         modelAndView.setViewName(VIEW_PROJECTS_GET_KEY_PAGE);
+      }
+      catch (AuthenticationException exc) {
+         modelAndView.setViewName(VIEW_LOGIN_PAGE);
       }
 
       return modelAndView;

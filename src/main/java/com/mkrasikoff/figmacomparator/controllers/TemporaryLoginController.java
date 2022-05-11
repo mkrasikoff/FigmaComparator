@@ -26,14 +26,17 @@ public class TemporaryLoginController {
    @Autowired
    private HttpService httpService;
 
-   public static final String MESSAGE_INVALID_TOKEN = "Invalid token, please check that your token is correct and available.";
-   public static final String MESSAGE_ACTUAL_TOKEN = "Actual token: ";
+   private static final String MESSAGE_INVALID_TOKEN = "Invalid token, please check that your token is correct and available.";
+   private static final String MESSAGE_ACTUAL_TOKEN = "Actual token: ";
+
+   private static final String VIEW_LOGIN_PAGE = "login/loginPage";
+   private static final String VIEW_LOGIN_SUCCESS_PAGE = "login/loginSuccessPage";
 
    @GetMapping("/token")
    public ModelAndView getTemporaryLoginPage() {
       ModelAndView modelAndView = new ModelAndView();
       modelAndView.addObject("user", new User());
-      modelAndView.setViewName("login/loginPage");
+      modelAndView.setViewName(VIEW_LOGIN_PAGE);
 
       return modelAndView;
    }
@@ -43,7 +46,7 @@ public class TemporaryLoginController {
       ModelAndView modelAndView = new ModelAndView();
 
       if(bindingResult.hasErrors()) {
-         modelAndView.setViewName("login/loginPage");
+         modelAndView.setViewName(VIEW_LOGIN_PAGE);
          return modelAndView;
       }
 
@@ -59,7 +62,7 @@ public class TemporaryLoginController {
          modelAndView.addObject("token", MESSAGE_INVALID_TOKEN);
       }
 
-      modelAndView.setViewName("login/loginSuccessPage");
+      modelAndView.setViewName(VIEW_LOGIN_SUCCESS_PAGE);
 
       return modelAndView;
    }
