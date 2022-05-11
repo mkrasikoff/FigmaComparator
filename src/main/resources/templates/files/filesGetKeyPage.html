@@ -30,12 +30,21 @@
             </span>
         </div>
         <div>
-            <form th:method="POST" th:action="@{/files/key}">
-                <input type="text" id="token" size="41"/>
-                <br/>
+            <form th:method="POST" th:action="@{/files/key}" th:object="${project}">
+                <div>
+                    <label for="key">Enter your project key:</label>
+                    <input type="text" th:field="*{key}" id="key" size="41"/>
+                    <div style="color:darkred" th:if="${#fields.hasErrors('key')}" th:errors="*{key}">Key validation error</div>
+                </div>
+                <div>
+                    <label for="name">Enter your project name:</label>
+                    <input type="text" th:field="*{name}" id="name" size="41"/>
+                    <div style="color:darkred" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name validation error</div>
+                </div>
                 <input type="submit" value="Submit"/>
             </form>
         </div>
+        <div style="color:darkred" th:text="${message}">Project adding error</div>
         <div>
             <form action="javascript:history.back()">
                 <button>Get back</button>
