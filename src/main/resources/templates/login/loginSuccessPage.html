@@ -16,6 +16,11 @@
                 <input type="submit" value="My Profile"/>
             </form>
         </div>
+        <div>
+            <form th:method="GET" th:action="@{/files/key}">
+                <input type="submit" value="Files"/>
+            </form>
+        </div>
         <div style="display: block">
             <form action="javascript:history.back()">
                 <button>Get back</button>

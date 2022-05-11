@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}">
+    <meta charset="UTF-8">
+    <title>Files page</title>
+</head>
+<body>
+    <div th:insert="~{common :: header}"></div>
+    <div class="login-form" style="font-family: Source Sans Pro; font-style: normal; font-weight: normal; line-height: 25px; font-size: 14px; padding-left: 14px;">
+        <br/>
+        <div>
+            <span>
+                Figma API allows you work with some files. All your Figma projects have a special key that you can find in your address bar.
+            </span>
+        </div>
+        <div>
+            <span>
+                To better understanding, look at the picture below:
+            </span>
+        </div>
+        <br/>
+        <div>
+            <img style="width: 816px; height: 347px" th:src="@{${'/images/fileKey.png'}}" alt="img">
+        </div>
+        <br/>
+        <div>
+            <span>
+                Copy and paste the special key into the form below to work with the files of this project:
+            </span>
+        </div>
+        <div>
+            <form th:method="POST" th:action="@{/files/key}" th:object="${project}">
+                <div>
+                    <label for="key">Enter your project key:</label>
+                    <input type="text" th:field="*{key}" id="key" size="41"/>
+                    <div style="color:darkred" th:if="${#fields.hasErrors('key')}" th:errors="*{key}">Key validation error</div>
+                </div>
+                <div>
+                    <label for="name">Enter your project name:</label>
+                    <input type="text" th:field="*{name}" id="name" size="41"/>
+                    <div style="color:darkred" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name validation error</div>
+                </div>
+                <input type="submit" value="Submit"/>
+            </form>
+        </div>
+        <div style="color:darkred" th:text="${message}">Project adding error</div>
+        <div>
+            <form action="javascript:history.back()">
+                <button>Get back</button>
+            </form>
+        </div>
+        <br/>
+    </div>
+    <div th:insert="~{common :: footer}"></div>
+</body>
+</html>
