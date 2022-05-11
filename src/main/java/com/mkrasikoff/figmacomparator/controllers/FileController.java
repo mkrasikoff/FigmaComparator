@@ -6,7 +6,6 @@ import com.mkrasikoff.figmacomparator.daos.UserDao;
 import com.mkrasikoff.figmacomparator.exceptions.ApiConnectionException;
 import com.mkrasikoff.figmacomparator.exceptions.AuthenticationException;
 import com.mkrasikoff.figmacomparator.models.Project;
-import com.mkrasikoff.figmacomparator.models.User;
 import com.mkrasikoff.figmacomparator.services.HttpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +20,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/files")
+// TODO: Finish this service in the task FC-## - Add url parsing to simplify user experience with app
 public class FileController {
 
    public static final String MESSAGE_PROJECT_NOT_ADDED = "Error - The project has not been added!";
