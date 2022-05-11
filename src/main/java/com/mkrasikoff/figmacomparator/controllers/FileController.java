@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.validation.Valid;
 
 @Controller
@@ -55,7 +54,7 @@ public class FileController {
       }
 
       try {
-         httpService.doGet(FigmaAPI.INFO_ABOUT_PROJECT + project.getKey(), userDao.getActualToken()); // change api
+         httpService.doGet(FigmaAPI.INFO_ABOUT_PROJECT + project.getKey(), userDao.getActualUser().getToken()); // change api
          projectsDao.addProject(project);
          modelAndView.setViewName("files/filesSuccessPage");
       }

@@ -2,13 +2,11 @@ package com.mkrasikoff.figmacomparator.models;
 
 import lombok.Data;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Pattern;
 
 @Data
 public class User {
 
-   @NotEmpty(message = "Token should not be empty!")
-   @Size(min = 43, max = 43, message = "Please sure that you write a valid token! (43 symbols)")
+   @Pattern(regexp = "([A-Za-z0-9]{6}-[A-Za-z0-9]{8}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{12})", message = "Right format token required!")
    private String token;
 }
