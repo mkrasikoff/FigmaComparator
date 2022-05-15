@@ -19,5 +19,7 @@ public class Project {
    }
 
    public Project() {
+      this.key = "";
+      this.name = "";
    }
 }
